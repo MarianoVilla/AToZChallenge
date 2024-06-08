@@ -92,4 +92,4 @@ out/
 .wget-hsts
 .npm/
 .bashrc
-./ssh
+.ssh/
