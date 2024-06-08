@@ -1,0 +1,92 @@
+# Ignore node_modules folder for JavaScript/Node.js packages
+node_modules/
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore compiled output for .NET Core
+bin/
+obj/
+
+# Ignore .NET Core project files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore user-specific files and settings for Visual Studio/JetBrains Rider
+.vscode/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.idea/
+*.sln.iml
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build output for .NET Core
+*.dll
+*.exe
+*.app
+*.lib
+*.dylib
+*.so
+*.a
+*.pdb
+
+# Ignore byproducts of running code
+*.pyc
+*.pyo
+*.pyd
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore coverage files
+coverage/
+*.lcov
+
+# Ignore temporary files and directories
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*~
+
+# Ignore NPM related files
+package-lock.json
+yarn.lock
+
+# Ignore environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore IDE specific files
+*.code-workspace
+
+# Ignore build results
+build/
+dist/
+out/
+
+# Ignore other random stuff
+.cache/
+.vscode-server/
+.nuget/
+.local/
+.dotnet/
+.templateengine/
+.bash_history
+.motd_shown
+.wget-hsts
