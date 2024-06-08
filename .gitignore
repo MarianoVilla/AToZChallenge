@@ -90,3 +90,6 @@ out/
 .bash_history
 .motd_shown
 .wget-hsts
+.npm/
+.bashrc
+./ssh
