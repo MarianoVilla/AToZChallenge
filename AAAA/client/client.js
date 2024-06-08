@@ -1,7 +1,7 @@
 const axios = require('axios');
 const db = require('arangojs')();
 
-db.useBasicAuth('root', '1234');
+db.useBasicAuth('root', process.env.ARANGO_ROOT_PASSWORD);
 collection = db.collection('catFacts');
 
 /* 
@@ -14,10 +14,11 @@ collection.create().then(
 axios({
     method:'get',
     url:'https://catfact.ninja/fact'
-}).then(function(response) {
-    collection.save(response.data)
-    .then(
-        meta => console.log('Cat fact saved: ', meta._rev),
-        err => console.error('Failed to save document: ', err)
-    );
+})
+    .then(function(response) {
+        collection.save(response.data)
+        .then(
+            meta => console.log('Cat fact saved: ', meta._rev),
+            err => console.error('Failed to save document: ', err)
+        );
 });

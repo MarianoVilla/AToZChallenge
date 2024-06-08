@@ -1,5 +1,5 @@
+using System.Net;
 using ArangoDBNetStandard;
-using ArangoDBNetStandard.DocumentApi.Models;
 using ArangoDBNetStandard.Transport.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,15 +20,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var Transport = HttpApiTransport.UsingBasicAuth(new Uri("http://localhost:8529/"), "_system", "root", "1234");
+var ArangoPass = Environment.GetEnvironmentVariable("ARANGO_ROOT_PASSWORD");
+var Transport = HttpApiTransport.UsingBasicAuth(new Uri("http://localhost:8529/"), "_system", "root", ArangoPass);
 var Adb = new ArangoDBClient(Transport);
 
 app.MapGet("/getCatFacts", async () =>
 {
-    var response = await Adb.Cursor.PostCursorAsync<CatFact>(
-        @"FOR doc IN catFacts 
-        RETURN doc");
-    return Results.Json(response);
+    var CatFactsResult = await Adb.Cursor.PostCursorAsync<CatFact>("FOR doc IN catFacts RETURN doc");
+    if(CatFactsResult.Error){
+        Console.WriteLine("Failed to get catFacts");
+        return Results.StatusCode((int)HttpStatusCode.InternalServerError);
+    }
+
+    return Results.Json(CatFactsResult.Result);
 })
 .WithName("GetCatFacts")
 .WithOpenApi();

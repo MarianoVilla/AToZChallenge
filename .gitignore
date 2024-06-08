@@ -93,3 +93,6 @@ out/
 .npm/
 .bashrc
 .ssh/
+.arangosh.history
+.sudo_as_admin_successful
+.viminfo
