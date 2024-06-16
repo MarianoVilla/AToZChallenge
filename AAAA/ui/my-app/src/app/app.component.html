@@ -1,0 +1,9 @@
+<h1>Puto el que lee</h1>
+<div class="container">
+  @for(catFact of catFacts; track $index){  
+    <div class="fact-card" (click)="cardClick()">
+        <p class="fact-text">Fact: {{ catFact.fact }}</p>
+        <p class="fact-length">Length: {{ catFact.length }}</p>
+    </div>
+  }
+</div>
