@@ -96,3 +96,4 @@ out/
 .arangosh.history
 .sudo_as_admin_successful
 .viminfo
+.npmrc
