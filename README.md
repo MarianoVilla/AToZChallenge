@@ -17,6 +17,13 @@ Originalmente la idea era usar un stack por letra (AAAA, BBBB, etc), pero probab
 - [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0) para el server. En este ejemplo incluimos una explicación de patrones de IoC, usando dependency injection como ejemplo de utilización de interfaces para evitar coupling.
 - [Angular](https://angular.dev/) para el front-end. En el último video del stack atravesamos de comienzo a fin la documentación del framework -que yo jamás había usado-, e implementamos un front *HERMOSO*.
 
+### PENE
+
+- [Python](https://www.python.org/)
+- [Excel](https://youtu.be/dQw4w9WgXcQ)
+- [Node.js](https://nodejs.org/en)
+- [ECharts](https://echarts.apache.org/en/index.html)
+
 
 ## Colaborar.
 
