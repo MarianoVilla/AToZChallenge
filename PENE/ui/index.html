@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Prepare a DOM with a defined width and height for ECharts -->
+    <div id="main"></div>
+    <script type="text/javascript">
+      let json = null;
+      (async () => {
+            try {
+                const response = await fetch('http://localhost:3000/dbz');
+                json = await response.json();
+                console.log(json);
+                // Initialize the echarts instance based on the prepared dom
+                var myChart = echarts.init(document.getElementById('main'));
+
+                // Specify the configuration items and data for the chart
+                var option = {
+                    title: {
+                    text: 'ECharts Getting Started Example',
+                    x: 'center',
+                    },
+                    tooltip: {},
+                    xAxis: {
+                    data: json.map(c => c.name)
+                    },
+                    yAxis: {},
+                    series: [
+                    {
+                        name: 'ki',
+                        type: 'bar',
+                        data: json.map(c => c.ki.replaceAll('.', ''))
+                    }
+                    ]
+                };
+
+                // Display the chart using the configuration items and data just specified.
+                myChart.setOption(option);
+
+            } catch (e) {
+                console.error(e);
+            }
+      })();
+    </script>
+  </body>
+
+</html>
